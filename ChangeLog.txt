@@ -1,0 +1,87 @@
+[v 0.1.2.Final] [13-12-2015]
+\ XPathSearchingPanel changed to be compliant with JavaBeans
+
+[v 0.1.1.Final] [13-12-2015]
++ XPathSearcherDisplay
++ XPathSearchingPanel
+
+[v 0.0.2] [27-04-2015]
++ Basic GUI template
++ JTextPane without line wrapping
++ File load from file system to JTextPane
++ Metal L&F in use
++ SLF4J + Logback in use
++ Properties file: "/xpath-searcher.properties"
+
+[v 0.0.3.alpha] [27-04-2015]
+
+[v 0.0.3.alpha2] [28-04-2015]
+\ developing engine to parse XML and color text
+
+[v 0.0.3.alpha3] [28-04-2015]
+\ developing engine to parse XML and color text - slicer works
+
+[v 0.0.3.alpha4] [28-04-2015]
+\ developing engine to parse XML and color text - refactoring - Slicer & StreamCutter joined up
+
+[v 0.0.3.alpha5] [28-04-2015]
+\ developing engine to parse XML and color text - minor changes (after crash)
+
+[v 0.0.3.alpha6.1] [29-04-2015]
+\ developing engine to parse XML and color text - backup before greater changes in logic
+
+[v 0.0.3.alpha6.2] [29-04-2015]
+\ developing engine to parse XML and color text - useHandler developing
+
+[v 0.0.3.alpha6.3] [29-04-2015]
+\ developing engine to parse XML and color text - useHandler developing [very minor changes]
+
+[v 0.0.4] [07-05-2015]
+\ developing engine to parse XML and color text
++ reorganisation of packages
++ ImprovedSlicer - parses file and generates notifications for registered handler (-> invokes methods of a handler)
++ ProcessingHandler - an interface to get parsing notifications
+
+[v 0.0.5.alpha] [08-05-2015]
+\ developing ImprovedSlicer to generate rawTest notification & StainTextHandler to insert styled text into JTextPane
++ XmlStylePalette & XmlStylePalettesManager
+
+[v 0.0.5] [11-05-2015]
++ now text is colored when the file (XML-compliant) is loaded
+
+[v 0.0.6.alpha] [12-05-2015]
+& JTextPaneWrapper - has everything to stain text. Uses loadStream() method to load file
++ ImmutableXMLDocument - does not allow to modify Document content from keyboard
+
+[v 0.0.6.alpha2] [13-05-2015]
+\ Before changing the logic to use Reader instead of InputStream
+
+[v 0.0.6] [13-05-2015]
+Now ImprovedSlicer contains char[] instead of byte[] as data, but uses InputStream - not Reader
+
+[v 0.0.7.alpha1] [14-05-2015]
+\ binding xpath to gui model
+
+[v 0.0.7] [15-05-2015]
++ xpath nodes bound to gui model (using map)
++ any found node is stained while searching by XPath expression
+
+[v 0.0.8-SNAPSHOT] [15-05-2015]
+\ Before moving XPath-processing logic to core lib
++ able to work with HTML after removing certain types of elements (head, img, input, br, area, button)
+
+[v 0.0.8-SNAPSHOT] [15-05-2015] second commit
+\ to keep Notes
+
+[v 0.1.0-SNAPSHOT] [20-05-2015]
+\major changes in structure and logic
+
+[v 0.1.0-SNAPSHOT1] [21-05-2015]
+\major changes in structure and logic 
+
+[v 0.1.0.alpha] [21-05-2015]
+\ alpha version - full info will be provided with final version
+
+[v 0.1.0.Final] [22-05-2015]
++XPathSearcherPane - GUI component which allows to deal with XPath searching in loaded stream(for example: a file)
++GuiApp - independent frame demonstrating the usage of XPathSearcherPane

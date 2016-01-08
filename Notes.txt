@@ -1,0 +1,47 @@
+Trzeba opracować koncepcję co właściwie robić z tymi Slice'ami
+ - w jaką strukturę je złączyć
+ - jakiś model obiektowy umożliwiający przeglądanie / nawigowanie po strukturze ?
+ 	trzeba by to jakoś powiązać z DOM'em i/lub silnikiem XPath
+ 	
+Uwaga : obecnie ImprovedSlicer prawdopodobnie jeszcze posiada pewne braki jeśli chodzi o wykrywanie błędów w Slice'ach.
+Poza tym posiada jeszcze pewne śmieci w kodzie (nadmiarowe, niepotrzebne zmienne itd...).
+Można by jeszcze upiększyć kod (poskracać, pododawać metody zamiast powtarzającego się kodu.
+Można by wywalić niepotrzebne klasy i w ten sposób uprościć organizację kodu
+
+CELE:
+->
+wrapper mógłby mieć podpinaną (wstrzykiwalną) konsolę do wpisywania poleceń i zwracania tekstowych komunikatów z wykonania poleceń
+niech też reaguje na \t wyświetlając dostępne polecenia
+
+Konsola wykorzystuje wzorzec Command do wykonywania poleceń w konsoli.
+Konsola stosuje filtr by edycja była możliwa tylko po znaku zachęty
+
+ * Obsługiwane polecenia * [znak zachęty] = poprzedzający $
+   $ find <wzorzec> -> znajduje wzorzec (przeprowadza ewaluację i podświetla wszystkie wystąpienia w dokumencie)
+   $ find --iterate <wzorzec> -> kompiluje wzorzec, oblicza ilość spełniających elementów, zwraca komunikat o ilości wykrytych elementów - i jeżeli >0 to oczekuje na "next" do podświetlenia kolejnego elementu lub "exit" do przerwania iteracji
+   $ find -i <wzorzec> -> jak wyżej
+   $ uloc -> skrót od unique-location
+   $ unique-location -> oblicza unikalne położenie elementu na którym jest kursor w dokumencie
+   $ iterate -> iteruje po WSZYSTKICH elementach (i atrybutach) w dokumencie - zwraca komunikat o ilości i oczekuje "next" lub "exit"
+   $ iterate --elements-only -> iteruje tylko po elementach
+   
+Jak powinna działać logika
+JTextPaneWrapper:
+	- posiada jako dokument instancję ImmutableXMLDocument
+	- otrzymuje [przechowuje] obiekt zarządzający stanem [XMLStateHolder]
+	- implementuje metody umożliwiające pobieranie[listy dostępnych], dodawanie i wybór bieżącej palety
+	
+[XMLStateHolder] obiekt zarządzający stanem
+-> zawiera zawartość tekstową [zapisany strumień]
+-> zawiera mapowanie XPath -> SliceRep
+-> umożliwia zarejestrowanie handlera do obsługi znalezionych w wyszukiwaniu węzłów ?
+-> dostarcza api do :
+	- wywołania wyszukiwania
+	
+	
+JAK (GDZIE?) PODPINAĆ LISTENERY W XMLStateHolder'ze?
+
+Złączyć całą logikę i stworzyć nową wersję Gui do przetestowania nowej konstrukcji logiki
+
+
+Stworzyć filtr do wykorzystania OtherTagRemoveSlicingListenera
